@@ -1,0 +1,15 @@
+@use 'utils/variables' as vars;
+@use 'utils/mixins';
+@use './components/header';
+@use './components/contacto';
+@use './components/footer';
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: vars.$primary-font;
+  background-image: url('/public/assets/images/fondoMobile.webp');
+  background-size: cover;
+}

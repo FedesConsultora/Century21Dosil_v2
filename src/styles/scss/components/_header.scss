@@ -1,0 +1,181 @@
+@use '../utils/variables' as vars;
+
+header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .header-container {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    .logo {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 8rem;
+      }
+    }
+
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+      height: 100%;
+
+      img {
+        width: 2.5rem;
+      }
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.02);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: left 0.3s ease-in-out;
+      
+      z-index: 1000;
+      .close-icon {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+
+        img {
+          width: 2.2rem;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          margin: 3rem 0;
+
+          a {
+            color: vars.$white-color;
+            font-size: 1.7rem;
+            text-decoration: none;
+            font-weight: 700;
+            text-shadow: 0px 0px 15px vars.$secondary-color ;
+            &:hover{
+              color: #cbc7c7;
+            }
+          }
+        }
+      }
+
+      &.active {
+        left: 0;
+      }
+    }
+  }
+}
+
+// Media Queries
+@media (min-width: 800px) {
+  header {
+    .header-container {
+      .logo{
+        img{
+          width: 12rem;
+        }
+      }
+      .menu-icon {
+        display: none;
+      }
+
+      .nav-menu {
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        transition: none;
+        .close-icon {
+          display: none;
+        }
+
+        ul {
+          display: flex;
+          flex-direction: row;
+
+          li {
+            margin: 0 1rem;
+
+            a {
+              color: vars.$white-color;
+              font-weight: 600 !important;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (min-width: 1024px) {
+  header {
+    .header-container {
+      padding: 2.5rem;
+      padding-left: 6rem;
+      padding-right: 6rem;
+      .logo{
+        img{
+          width: 12rem;
+        }
+      }
+      .menu-icon {
+        display: none;
+      }
+
+      .nav-menu {
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        transition: none;
+        .close-icon {
+          display: none;
+        }
+
+        ul {
+          display: flex;
+          flex-direction: row;
+
+          li {
+            margin: 0 1rem;
+
+            a {
+              color: vars.$white-color;
+              font-weight: 600 !important;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
