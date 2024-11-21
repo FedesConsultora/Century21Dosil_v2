@@ -12,7 +12,7 @@ const Footer = () => {
       <footer className="footer">
         <div className="footer-container">
           <div className="footer-logo">
-            <img src="/assets/images/logo1.2.webp" alt="Century 21 Dosil Logo" />
+            <img src="/assets/images/Logo1.webp" alt="Century 21 Dosil Logo" />
           </div>
           <div className="footer-content">
             <ul className="footer-info">

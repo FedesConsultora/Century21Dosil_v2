@@ -148,9 +148,8 @@ header .header-container .nav-menu.active {
   position: relative;
   font-family: "Mont", sans-serif;
   color: #606060;
-  margin: 1rem 0.75rem;
-  padding: 2rem 0.75rem !important;
-  margin-bottom: 6rem;
+  padding: 2rem 1rem !important;
+  overflow: hidden;
 }
 .contact-page .borders {
   position: absolute;
@@ -299,12 +298,16 @@ header .header-container .nav-menu.active {
   font-size: 1rem;
   border: 1px solid #606060;
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.666);
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
   box-shadow: rgba(34, 34, 34, 0.5) 0px 0px 10px 0px;
+}
+.contact-page .contact-form input::placeholder,
+.contact-page .contact-form textarea::placeholder {
+  color: #FFFFFF;
 }
 .contact-page .contact-form textarea {
   resize: vertical;
@@ -329,6 +332,11 @@ header .header-container .nav-menu.active {
 }
 .contact-page .contact-form button:hover {
   background-color: rgb(169.8244680851, 150.7553191489, 101.1755319149);
+}
+
+.spacer {
+  height: 5rem; /* Altura del espacio deseado */
+  background: transparent; /* Asegura que el fondo se muestre */
 }
 
 @media (min-width: 800px) {
@@ -520,10 +528,12 @@ header .header-container .nav-menu.active {
     width: 25rem !important;
   }
   .contact-page .textoYfoto .texto_contacto_container {
+    width: 70% !important;
     padding-right: 1rem;
   }
   .contact-page .textoYfoto .texto_contacto_container .titulo {
     font-size: 4rem;
+    max-width: 700px;
   }
   .contact-page .textoYfoto .texto_contacto_container .propiedad_container {
     margin-left: -2rem;
@@ -610,6 +620,111 @@ header .header-container .nav-menu.active {
   .contact-page .borders .border-left-bottom {
     bottom: 0;
     height: 5%;
+  }
+}
+.home-page {
+  position: relative;
+  font-family: "Mont", sans-serif;
+  color: #606060;
+  margin: 1rem 0.75rem;
+  padding: 1rem 0.75rem;
+}
+.home-page .borders {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.home-page .borders .border-top {
+  position: absolute;
+  top: 0;
+  height: 2px;
+  background-color: #FFFFFF;
+}
+.home-page .borders .border-top-left {
+  left: 0;
+  width: 50%;
+}
+.home-page .borders .border-top-right {
+  right: 0;
+  width: 50%;
+}
+.home-page .borders .border-right {
+  position: absolute;
+  right: 0;
+  width: 2px;
+  background-color: #FFFFFF;
+}
+.home-page .borders .border-right-top {
+  top: 0;
+  height: 50%;
+}
+.home-page .borders .border-right-bottom {
+  bottom: 0;
+  height: 50%;
+}
+.home-page .borders .border-bottom {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: #FFFFFF;
+}
+.home-page .borders .border-bottom-left {
+  left: 0;
+  width: 50%;
+}
+.home-page .borders .border-bottom-right {
+  right: 0;
+  width: 50%;
+}
+.home-page .borders .border-left {
+  position: absolute;
+  left: 0;
+  width: 2px;
+  background-color: #FFFFFF;
+}
+.home-page .borders .border-left-top {
+  top: 0;
+  height: 50%;
+}
+.home-page .borders .border-left-bottom {
+  bottom: 0;
+  height: 50%;
+}
+.home-page #inicio {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+.home-page #inicio h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+.home-page #inicio h1 span {
+  color: #BCAD86;
+  -webkit-text-stroke: 0.5px #FFFFFF;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+.home-page #inicio .image-container {
+  margin-top: 1.5rem;
+}
+.home-page #inicio .image-container img {
+  width: 100%;
+  max-width: 600px;
+}
+
+@media (min-width: 800px) {
+  .home-page {
+    padding: 4rem 2rem;
+  }
+  .home-page #inicio h1 {
+    font-size: 3rem;
   }
 }
 .footer {
@@ -705,8 +820,20 @@ header .header-container .nav-menu.active {
 
 body {
   font-family: "Mont", sans-serif;
+}
+
+.header-main {
   background-image: url("/public/assets/images/fondoMobile.webp");
   background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 1024px) {
+  .header-main {
+    background-image: url("/public/assets/images/fondoDesktop4.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,37 +1,26 @@
 // src/components/layouts/Header.js
 
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logo from '../Logo.js';
 import MenuHamburguesa from '../MenuHamburgesa.js';
 import CloseIcon from '../CloseIcon.js';
+import Swal from 'sweetalert2';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleLinkClick = (e, targetId) => {
-    if (menuOpen) {
-      setMenuOpen(false);
-    }
-
-    if (targetId) {
-      e.preventDefault();
-
-      if (location.pathname !== '/') {
-        // Usamos navigate para cambiar de ruta sin recargar
-        window.location.href = '/#' + targetId;
-      } else {
-        const element = document.getElementById(targetId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    }
+  const showUnderDevelopmentAlert = () => {
+    Swal.fire({
+      title: 'Funcionalidad en Desarrollo',
+      text: 'Esta funcionalidad está en desarrollo.',
+      icon: 'info',
+      confirmButtonText: 'Cerrar',
+    });
   };
 
   return (
@@ -50,27 +39,55 @@ const Header = () => {
           </div>
           <ul>
             <li>
-              <Link to="/contacto" onClick={(e) => handleLinkClick(e)}>
+              <Link to="/" onClick={() => setMenuOpen(false)}>
                 Contacto
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={(e) => handleLinkClick(e)}>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  showUnderDevelopmentAlert();
+                }}
+              >
                 Inicio
-              </Link>
+              </a>
             </li>
             <li>
-              <a href="#blog" onClick={(e) => handleLinkClick(e, 'blog')}>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  showUnderDevelopmentAlert();
+                }}
+              >
                 Blog
               </a>
             </li>
             <li>
-              <a href="#equipo" onClick={(e) => handleLinkClick(e, 'equipo')}>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  showUnderDevelopmentAlert();
+                }}
+              >
                 Equipo
               </a>
             </li>
             <li>
-              <a href="https://century21.com.ar/busqueda/tipo_departamento/operacion_venta">
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  showUnderDevelopmentAlert();
+                }}
+              >
                 Propiedades
               </a>
             </li>

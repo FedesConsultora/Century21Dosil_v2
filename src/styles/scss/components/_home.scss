@@ -1,0 +1,136 @@
+// src/styles/home.scss
+
+@use 'sass:color';
+@use '../utils/variables' as vars;
+
+.home-page {
+  position: relative;
+  font-family: vars.$primary-font;
+  color: vars.$secondary-color;
+  margin: 1rem 0.75rem;
+  padding: 1rem 0.75rem;
+
+  // Div para los bordes personalizados
+  .borders {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+
+    // Borde superior dividido en izquierdo y derecho
+    .border-top {
+      position: absolute;
+      top: 0;
+      height: 2px;
+      background-color: vars.$white-color;
+
+      &-left {
+        left: 0;
+        width: 50%; // Ajusta este valor según necesites
+      }
+      &-right {
+        right: 0;
+        width: 50%; // Ajusta este valor según necesites
+      }
+    }
+
+    // Borde derecho dividido en superior e inferior
+    .border-right {
+      position: absolute;
+      right: 0;
+      width: 2px;
+      background-color: vars.$white-color;
+
+      &-top {
+        top: 0;
+        height: 50%; // Ajusta este valor según necesites
+      }
+      &-bottom {
+        bottom: 0;
+        height: 50%; // Ajusta este valor según necesites
+      }
+    }
+
+    // Borde inferior dividido en izquierdo y derecho
+    .border-bottom {
+      position: absolute;
+      bottom: 0;
+      height: 2px;
+      background-color: vars.$white-color;
+
+      &-left {
+        left: 0;
+        width: 50%; // Ajusta este valor según necesites
+      }
+      &-right {
+        right: 0;
+        width: 50%; // Ajusta este valor según necesites
+      }
+    }
+
+    // Borde izquierdo dividido en superior e inferior
+    .border-left {
+      position: absolute;
+      left: 0;
+      width: 2px;
+      background-color: vars.$white-color;
+
+      &-top {
+        top: 0;
+        height: 50%; // Ajusta este valor según necesites
+      }
+      &-bottom {
+        bottom: 0;
+        height: 50%; // Ajusta este valor según necesites
+      }
+    }
+  }
+
+  // Estilos para el contenido de inicio
+  #inicio {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: vars.$white-color;
+      text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+
+      span {
+        color: vars.$primary-color;
+        -webkit-text-stroke: 0.5px vars.$white-color;
+        text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    // Contenedor de imagen
+    .image-container {
+      margin-top: 1.5rem;
+      img {
+        width: 100%;
+        max-width: 600px;
+      }
+    }
+  }
+
+  // Puedes agregar estilos para BlogSection y EquipoSection aquí
+}
+
+// Diseño responsivo
+@media (min-width: 800px) {
+  .home-page {
+    padding: 4rem 2rem;
+
+    #inicio {
+      h1 {
+        font-size: 3rem;
+      }
+    }
+  }
+}

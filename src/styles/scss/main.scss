@@ -2,6 +2,7 @@
 @use 'utils/mixins';
 @use './components/header';
 @use './components/contacto';
+@use './components/home';
 @use './components/footer';
 *{
   margin: 0;
@@ -10,6 +11,18 @@
 }
 body {
   font-family: vars.$primary-font;
+}
+
+.header-main{
   background-image: url('/public/assets/images/fondoMobile.webp');
   background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 1024px) {
+  .header-main{
+    background-image: url('/public/assets/images/fondoDesktop4.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }

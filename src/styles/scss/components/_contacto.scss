@@ -7,9 +7,8 @@
   position: relative; 
   font-family: vars.$primary-font;
   color: vars.$secondary-color;
-  margin: 1rem 0.75rem;
-  padding: 2rem 0.75rem !important;
-  margin-bottom: 6rem;
+  padding: 2rem 1rem !important;
+  overflow: hidden;
   .borders {
     position: absolute;
     top: 0;
@@ -18,7 +17,6 @@
     height: 100%;
     pointer-events: none; 
     z-index: 1; 
-
     // Borde superior dividido en izquierdo y derecho
     .border-top {
       position: absolute;
@@ -59,7 +57,7 @@
       bottom: 0;
       height: 2px; // Grosor del borde
       background-color: vars.$white-color;
-
+      
       &-left {
         left: 0.8rem;
         width: 50%; // Ajusta este valor según necesites
@@ -151,7 +149,7 @@
   }
 
   .contact-form {
-    position: relative; // Aseguramos que el formulario esté encima de los bordes
+    position: relative; 
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -174,12 +172,15 @@
       font-size: 1rem;
       border: 1px solid vars.$secondary-color;
       border-radius: 15px;
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.666);
       -webkit-border-radius: 15px;
       -moz-border-radius: 15px;
       -ms-border-radius: 15px;
       -o-border-radius: 15px;
       box-shadow: rgba($color: vars.$black-color , $alpha: 0.5) 0px 0px 10px 0px;
+      &::placeholder {
+        color: vars.$white-color;
+      }
     }
 
     textarea {
@@ -210,7 +211,10 @@
   }
 }
 
-
+.spacer {
+  height: 5rem; /* Altura del espacio deseado */
+  background: transparent; /* Asegura que el fondo se muestre */
+}
 
 @media (min-width: 800px) {
   .contact-page{
@@ -433,6 +437,7 @@
     }
     
     .textoYfoto{
+      
       .foto_contacto_container{
         display: flex;
         z-index: 2;
@@ -441,10 +446,11 @@
         }
       }
       .texto_contacto_container {
+        width: 70% !important;
         padding-right: 1rem;
         .titulo {
           font-size: 4rem;
-          
+          max-width: 700px;
         }
   
         .propiedad_container {
