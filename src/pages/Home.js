@@ -41,7 +41,7 @@ const Home = () => {
             </div>
             <div className="foto_contacto_container">
             <img
-                  src="/assets/images/edificioContactoMobile.webp"
+                  src="/assets/images/edificioContactoDesktop.webp"
                   alt="Foto de la propiedad"
                 />
             </div>
