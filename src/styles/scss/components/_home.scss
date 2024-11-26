@@ -9,128 +9,427 @@
   color: vars.$secondary-color;
   margin: 1rem 0.75rem;
   padding: 1rem 0.75rem;
-
-  // Div para los bordes personalizados
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   .borders {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
-    z-index: 1;
-
+    pointer-events: none; 
+    z-index: 1; 
     // Borde superior dividido en izquierdo y derecho
     .border-top {
       position: absolute;
       top: 0;
-      height: 2px;
+      height: 2px; 
       background-color: vars.$white-color;
 
       &-left {
-        left: 0;
-        width: 50%; // Ajusta este valor según necesites
+        left: 0.8rem;
+        width: 50%; 
       }
       &-right {
-        right: 0;
-        width: 50%; // Ajusta este valor según necesites
+        right: 2.4rem !important;
+        width: 50%; 
       }
     }
 
-    // Borde derecho dividido en superior e inferior
+    
     .border-right {
       position: absolute;
-      right: 0;
-      width: 2px;
+      right: 2.4rem !important;
+      width: 2px; 
       background-color: vars.$white-color;
 
       &-top {
         top: 0;
-        height: 50%; // Ajusta este valor según necesites
+        height: 10%; 
       }
       &-bottom {
         bottom: 0;
-        height: 50%; // Ajusta este valor según necesites
+        height: 6%; 
       }
     }
 
-    // Borde inferior dividido en izquierdo y derecho
     .border-bottom {
       position: absolute;
       bottom: 0;
-      height: 2px;
+      height: 2px; 
       background-color: vars.$white-color;
-
+      
       &-left {
-        left: 0;
-        width: 50%; // Ajusta este valor según necesites
+        left: 0.8rem;
+        width: 50%; 
       }
       &-right {
-        right: 0;
-        width: 50%; // Ajusta este valor según necesites
+        right: 2.4rem !important;
+        width: 50%; 
       }
     }
 
-    // Borde izquierdo dividido en superior e inferior
     .border-left {
       position: absolute;
-      left: 0;
-      width: 2px;
+      left: 0.7rem;
+      width: 2px; 
       background-color: vars.$white-color;
 
       &-top {
         top: 0;
-        height: 50%; // Ajusta este valor según necesites
+        height: 12%; 
       }
       &-bottom {
         bottom: 0;
-        height: 50%; // Ajusta este valor según necesites
+        height: 6%; 
       }
     }
   }
-
-  // Estilos para el contenido de inicio
   #inicio {
     text-align: center;
     margin-bottom: 2rem;
     position: relative;
     z-index: 2;
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: vars.$white-color;
-      text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-
-      span {
-        color: vars.$primary-color;
-        -webkit-text-stroke: 0.5px vars.$white-color;
-        text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+    .textoYfoto{
+      display: flex;
+      padding-top: 0rem;
+      .texto_contacto_container{
+        text-align: start;
+        .titulo {
+          font-size: 2rem;
+          font-weight: 900;
+          color: vars.$white-color;
+          text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); 
+          padding-bottom: 1rem;
+          
+          span {
+            color: vars.$primary-color;
+            -webkit-text-stroke: 0.5px vars.$white-color;
+            text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+          }
+        }
+        .subTitulo{
+          font-size: 1.2rem;
+          color: vars.$white-color;
+          font-weight: 600;
+          background-color: rgba(0, 0, 0, 0.3);
+          padding: 0.5rem;
+          padding-right: 4rem;
+          padding-left: 1.5rem;
+          margin-bottom: 3rem;
+          width: calc(100% + 3rem);
+          margin-left: -1.5rem;
+          .dotted{
+            text-decoration: underline;
+          }
+        }
+        .footerText{
+          color: vars.$white-color;
+        }
+        .image-container {
+          margin-top: 1.5rem;
+          img {
+            width: 100%;
+            max-width: 600px;
+          }
+        }
+      }
+      .foto_contacto_container{
+        img{
+          display: none;
+        }
       }
     }
-
-    // Contenedor de imagen
-    .image-container {
-      margin-top: 1.5rem;
-      img {
-        width: 100%;
-        max-width: 600px;
-      }
-    }
+    
+    
   }
-
-  // Puedes agregar estilos para BlogSection y EquipoSection aquí
+}
+.spacerHome{
+  height: 2rem;
 }
 
-// Diseño responsivo
 @media (min-width: 800px) {
   .home-page {
     padding: 4rem 2rem;
-
+    .borders {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; // Para que no interfiera con la interacción
+      z-index: 1; // Aseguramos que esté detrás del contenido pero encima del fondo
+  
+      // Borde superior dividido en izquierdo y derecho
+      .border-top {
+        position: absolute;
+        top: 0;
+        height: 2px; // Grosor del borde
+        background-color: vars.$white-color;
+  
+        &-left {
+          left: 2.05rem;
+          width: 50%; // Ajusta este valor según necesites
+        }
+        &-right {
+          right: 3.9rem !important;
+          width: 50%; // Ajusta este valor según necesites
+        }
+      }
+  
+      // Borde derecho dividido en superior e inferior
+      .border-right {
+        position: absolute;
+        right: 3.9rem !important;
+        width: 2px; // Grosor del borde
+        background-color: vars.$white-color;
+  
+        &-top {
+          top: 0;
+          height: 12% !important; // Ajusta este valor según necesites
+        }
+        &-bottom {
+          bottom: 0;
+          height: 5%; // Ajusta este valor según necesites
+        }
+      }
+  
+      // Borde inferior dividido en izquierdo y derecho
+      .border-bottom {
+        position: absolute;
+        bottom: 0;
+        height: 2px; // Grosor del borde
+        background-color: vars.$white-color;
+  
+        &-left {
+          left: 2.05rem;
+          width: 50%; // Ajusta este valor según necesites
+        }
+        &-right {
+          right: 3.9rem !important;
+          width: 50%; // Ajusta este valor según necesites
+        }
+      }
+  
+      // Borde izquierdo dividido en superior e inferior
+      .border-left {
+        position: absolute;
+        left: 2.05rem;
+        width: 2px; // Grosor del borde
+        background-color: vars.$white-color;
+  
+        &-top {
+          top: 0;
+          height: 5%; // Ajusta este valor según necesites
+        }
+        &-bottom {
+          bottom: 0;
+          height: 5%; // Ajusta este valor según necesites
+        }
+      }
+    }
     #inicio {
-      h1 {
-        font-size: 3rem;
+      .textoYfoto{
+        display: flex;
+        .texto_contacto_container{
+          text-align: start;
+          .titulo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: vars.$white-color;
+            text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); 
+            padding-bottom: 1rem;
+            padding-right: 1.5rem;
+            padding-top: 4rem;
+            span {
+              color: vars.$primary-color;
+              -webkit-text-stroke: 0.5px vars.$white-color;
+              text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+            }
+          }
+          .subTitulo{
+            font-size: 1.25rem;
+            color: vars.$white-color;
+            font-weight: 600;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem;
+            padding-right: 4rem;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+            width: calc(100% + 3rem);
+            margin-left: -3rem;
+            .dotted{
+              text-decoration: underline;
+            }
+          }
+          .footerText{
+            color: vars.$white-color;
+            background-color: rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.35);
+            width: calc(100% + 3rem);
+            margin-left: -3rem;
+            padding: 1rem;
+            padding-left: 3rem;
+            
+          }
+          .image-container {
+            margin-top: 1.5rem;
+            img {
+              width: 100%;
+              max-width: 600px;
+            }
+          }
+        }
+        .foto_contacto_container{
+          img{
+            display: flex;
+            width: 20rem;
+            height: fit-content;
+          }
+        }
       }
     }
   }
+}
+
+@media (min-width: 1024px) {
+  .home-page {
+    padding: 4rem 2rem;
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
+    padding-bottom: 1rem !important;
+    .borders {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1; 
+  
+      
+      .border-top {
+        position: absolute;
+        top: 0;
+        height: 2px; 
+        background-color: vars.$white-color;
+  
+        &-left {
+          left: 3.1rem !important;
+          width: 50%; 
+        }
+        &-right {
+          right: 6.9rem !important;
+          width: 50%;
+        }
+      }
+  
+      
+      .border-right {
+        position: absolute;
+        right: 6.9rem !important;
+        width: 2px; 
+        background-color: vars.$white-color;
+  
+        &-top {
+          top: 0;
+          height: 12% !important;
+        }
+        &-bottom {
+          bottom: 0;
+          height: 11%; 
+        }
+      }
+  
+     
+      .border-bottom {
+        position: absolute;
+        bottom: 0;
+        height: 2px; 
+        background-color: vars.$white-color;
+  
+        &-left {
+          left: 3.1rem !important;
+          width: 50%; 
+        }
+        &-right {
+          right: 6.9rem !important;
+          width: 50%; 
+        }
+      }
+      
+      .border-left {
+        position: absolute;
+        left: 3.1rem !important;
+        width: 2px; 
+        background-color: vars.$white-color;
+  
+        &-top {
+          top: 0;
+          height: 5%; 
+        }
+        &-bottom {
+          bottom: 0;
+          height: 5%; 
+        }
+      }
+    }
+    #inicio {
+      .textoYfoto{
+        display: flex;
+        .texto_contacto_container{
+          text-align: start;
+          .titulo {
+            font-size: 4rem;
+            max-width: 700px;
+            span {
+              color: vars.$primary-color;
+              -webkit-text-stroke: 0.5px vars.$white-color;
+              text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+            }
+          }
+          .subTitulo{
+            font-size: 2rem;
+            color: vars.$white-color;
+            font-weight: 600;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem;
+            padding-right: 4rem;
+            padding-left: 3.75rem;
+            margin-bottom: 2.5rem;
+            width: calc(100% + 3.75rem);
+            margin-left: -3.75rem;
+            .dotted{
+              text-decoration: underline;
+            }
+          }
+          .footerText{
+            color: vars.$white-color;
+            background-color: rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.6);
+            width: calc(100% + 3.75rem);
+            margin-left: -3.75rem;
+            padding: 1rem;
+            padding-left: 3.75rem;
+            
+          }
+          .image-container {
+            margin-top: 1.5rem;
+            img {
+              width: 100%;
+              max-width: 600px;
+            }
+          }
+        }
+        .foto_contacto_container{
+          img{
+            display: flex;
+            width: 25rem;
+            height: fit-content;
+          }
+        }
+      }
+    }
+  }
+
 }

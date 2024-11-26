@@ -4,6 +4,9 @@
 @use './components/contacto';
 @use './components/home';
 @use './components/footer';
+@use './components/datosSection';
+@use './components/equipoSection';
+@use './components/blogSection';
 *{
   margin: 0;
   padding: 0;
@@ -14,6 +17,7 @@ body {
 }
 
 .header-main{
+  
   background-image: url('/public/assets/images/fondoMobile.webp');
   background-size: cover;
   background-repeat: no-repeat;
@@ -21,7 +25,7 @@ body {
 
 @media (min-width: 1024px) {
   .header-main{
-    background-image: url('/public/assets/images/fondoDesktop4.png');
+    background-image: url('/public/assets/images/fondoDesktop4.webp');
     background-size: cover;
     background-repeat: no-repeat;
   }

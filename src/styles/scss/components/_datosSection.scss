@@ -1,0 +1,99 @@
+@use '../utils/variables' as vars;
+@use '../utils/mixins' as mixins;
+
+.datos-section {
+  padding: 60px 20px;
+  background-image: url('/public/assets/images/FondoDatos.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: vars.$primary-font;
+  color: vars.$secondary-color;
+  text-align: center;
+  position: relative;
+  .tituloDatos{
+    color: vars.$secondary-color;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 900;
+    span{
+      text-decoration: underline;
+    }
+  }
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: vars.$primary-color;
+  }
+
+  .datos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .dato-item {
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 10px rgba(vars.$black-color, 0.15);
+    }
+
+    .label {
+      font-size: 1em;
+      color: vars.$secondary-color;
+      margin: 5px 0;
+      font-weight: 500;
+    }
+
+    .numero {
+      font-size: 2.5rem;
+      color: vars.$secondary-color;
+      margin-top: 10px;
+      font-weight: 900;
+    }
+  }
+}
+
+// Medidas Responsivas
+@media (min-width: 800px) {
+  .datos-section {
+    padding: 80px 40px;
+
+    .section-title {
+      font-size: 3rem;
+    }
+
+    .dato-item {
+      width: 250px;
+
+      .numero {
+        font-size: 2.5em;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .datos-section {
+    padding: 100px 60px;
+
+    .section-title {
+      font-size: 3.5rem;
+    }
+
+    .dato-item {
+      width: 300px;
+
+      .numero {
+        font-size: 3em;
+      }
+    }
+  }
+}

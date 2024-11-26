@@ -1,65 +1,66 @@
 // src/components/BlogCarousel.js
 
-import React, { useState } from 'react';
-import Modal from 'react-modal';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-Modal.setAppElement('#root');
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, A11y } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const BlogCarousel = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [currentNote, setCurrentNote] = useState(null);
-
-  const notes = [
+  const blogNotes = [
     {
       id: 1,
-      title: 'Título de la Nota 1',
-      image: '/images/nota1.jpg',
-      content: 'Contenido completo de la nota 1...'
+      imageSrc: '/assets/images/blog1.jpg',
+      title: 'Guía completa para comprar una vivienda.',
+      link: 'https://www.infobae.com/economia/2024/09/07/blanqueo-y-propiedades-guia-completa-para-comprar-viviendas-con-beneficios-fiscales/',
     },
-    // Agrega más notas según sea necesario
+    {
+      id: 2,
+      imageSrc: '/assets/images/blog2.jpg',
+      title: 'Efecto de los créditos hipotecarios en la economía.',
+      link: 'https://eleconomista.com.ar/economia/efecto-creditos-hipotecarios-blanqueo-demanda-inmuebles-disparo-100-anual-caba-n78900',
+    },
+    {
+      id: 3,
+      imageSrc: '/assets/images/blog3.jpg',
+      title: '¿Qué es hipoteca divisible?',
+      link: 'https://www.lanacion.com.ar/propiedades/casas-y-departamentos/la-hipoteca-del-futuro-dijo-caputo-que-son-las-hipotecas-divisibles-y-como-funciona-el-sistema-que-nid13112024/',
+    },
   ];
 
-  const openModal = (note) => {
-    setCurrentNote(note);
-    setModalIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-    setCurrentNote(null);
-  };
-
   return (
-    <div className="blog-carousel">
-      <Carousel showThumbs={false} showStatus={false}>
-        {notes.map((note) => (
-          <div key={note.id} onClick={() => openModal(note)}>
-            <img src={note.image} alt={note.title} />
-            <div className="note-info">
-              <h3>{note.title}</h3>
-              <span className="arrow">→</span>
+    <Swiper
+      modules={[Pagination, A11y]}
+      spaceBetween={40}
+      slidesPerView={1}
+      pagination={{ clickable: true }}
+      breakpoints={{
+        600: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      }}
+      grabCursor={true}
+    >
+      {blogNotes.map((note) => (
+        <SwiperSlide key={note.id}>
+          <Link to={`${note.link}`} className="blog-note-link">
+            <div className="blog-note">
+              <img src={note.imageSrc} alt={note.title} />
+              <div className="note-content">
+                <h3>{note.title}</h3>
+                <img className='flecha' src="/assets/icons/flecha-derecha.png" alt="Siguiente" />
+              </div>
             </div>
-          </div>
-        ))}
-      </Carousel>
-
-      {currentNote && (
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          className="blog-modal"
-          overlayClassName="blog-modal-overlay"
-        >
-          <button onClick={closeModal} className="close-button">
-            &times;
-          </button>
-          <h2>{currentNote.title}</h2>
-          <p>{currentNote.content}</p>
-        </Modal>
-      )}
-    </div>
+          </Link>
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 

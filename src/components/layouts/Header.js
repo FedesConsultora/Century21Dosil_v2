@@ -1,32 +1,29 @@
 // src/components/layouts/Header.js
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../Logo.js';
 import MenuHamburguesa from '../MenuHamburgesa.js';
 import CloseIcon from '../CloseIcon.js';
-import Swal from 'sweetalert2';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const showUnderDevelopmentAlert = () => {
-    Swal.fire({
-      title: 'Funcionalidad en Desarrollo',
-      text: 'Esta funcionalidad está en desarrollo.',
-      icon: 'info',
-      confirmButtonText: 'Cerrar',
-    });
+  const handleLinkClick = (e, sectionId) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    navigate('/', { state: { scrollTo: sectionId } });
   };
 
   return (
     <header>
       <div className="header-container">
-        <Link to="/">
+        <Link to="/" onClick={() => setMenuOpen(false)}>
           <Logo />
         </Link>
         <div className="menu-icon" onClick={handleMenuToggle}>
@@ -39,54 +36,31 @@ const Header = () => {
           </div>
           <ul>
             <li>
-              <Link to="/" onClick={() => setMenuOpen(false)}>
+              <Link to="/contacto" onClick={() => setMenuOpen(false)}>
                 Contacto
               </Link>
             </li>
             <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMenuOpen(false);
-                  showUnderDevelopmentAlert();
-                }}
-              >
+              <Link to="/" onClick={() => setMenuOpen(false)}>
                 Inicio
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMenuOpen(false);
-                  showUnderDevelopmentAlert();
-                }}
-              >
+              <a href="#blog" onClick={(e) => handleLinkClick(e, 'blog')}>
                 Blog
               </a>
             </li>
             <li>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMenuOpen(false);
-                  showUnderDevelopmentAlert();
-                }}
-              >
+              <a href="#equipo" onClick={(e) => handleLinkClick(e, 'equipo')}>
                 Equipo
               </a>
             </li>
             <li>
               <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMenuOpen(false);
-                  showUnderDevelopmentAlert();
-                }}
+                href="https://c21dosil.com.ar/propiedades"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
               >
                 Propiedades
               </a>

@@ -1,0 +1,293 @@
+@use '../utils/variables' as vars;
+@use '../utils/mixins' as mixins;
+.equipo-carousel_container{
+    background-image: url('/public/assets/images/FondoEquipo.webp');
+    background-size: cover;
+}
+.spacerEquipo{
+    height: 2rem;
+}
+.equipo-carousel {
+  width: 100%;
+  padding: 20px 0;
+  position: relative; // Para posicionar los bordes correctamente
+  background-position: center;
+
+  .textoContainer {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .tituloEquipo {
+      color: vars.$secondary-color;
+      margin-bottom: 2rem;
+      font-weight: 900;
+      font-size: 1.5rem;
+    }
+
+    .parrafoEquipo {
+      color: vars.$secondary-color;
+      font-weight: 600;
+    }
+  }
+
+  .swiper {
+    width: 100%;
+    height: auto;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    max-width: 1200px;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .reel {
+    position: relative;
+    width: 100%;
+    padding-top: 177.78%; // Aspect ratio 16:9
+    background-color: rgba(vars.$white-color, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(vars.$black-color, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 1rem;
+    box-shadow: vars.$black-color 0px 0px 20px;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(vars.$black-color, 0.15);
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .reel-title {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(vars.$black-color, 0.5);
+      color: vars.$white-color;
+      padding: 10px;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+  }
+
+  // Bordes alrededor de los reels
+  .borders {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+
+    .border-top {
+      position: absolute;
+      top: 4.2rem;
+      height: 2px; // Grosor del borde
+      background-color: vars.$secondary-color;
+
+      &-left {
+        left: 0.5rem;
+        width: 10%; // Ajusta este valor según sea necesario
+      }
+
+      &-right {
+        right: 0.5rem;
+        width: 10%; // Ajusta este valor según sea necesario
+      }
+    }
+
+    .border-right {
+      position: absolute;
+      right: 0.5rem;
+      width: 2px; // Grosor del borde
+      background-color: vars.$secondary-color;
+
+      &-top {
+        top: 4.2rem;
+        height: 15%; // Ajusta este valor según sea necesario
+      }
+
+      &-bottom {
+        bottom: 12rem;
+        height: 15%; // Ajusta este valor según sea necesario
+      }
+    }
+
+    .border-bottom {
+      position: absolute;
+      bottom: 12rem;
+      height: 2px; // Grosor del borde
+      background-color: vars.$secondary-color;
+
+      &-left {
+        left: 0.5rem;
+        width: 50%; // Ajusta este valor según sea necesario
+      }
+
+      &-right {
+        right: 0.5rem;
+        width: 50%; // Ajusta este valor según sea necesario
+      }
+    }
+
+    .border-left {
+      position: absolute;
+      left: 0.5rem;
+      width: 2px; // Grosor del borde
+      background-color: vars.$secondary-color;
+
+      &-top {
+        top: 4.2rem;
+        height: 15%; // Ajusta este valor según sea necesario
+      }
+
+      &-bottom {
+        bottom: 12rem;
+        height: 15%; // Ajusta este valor según sea necesario
+      }
+    }
+  }
+
+  // Estilos de los botones de navegación
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+
+  // Estilos de la paginación
+  .swiper-pagination-bullet {
+    background: vars.$secondary-color;
+    opacity: 0.7;
+    width: 4rem;
+    border-radius: 0px;
+
+    &.swiper-pagination-bullet-active {
+      background: vars.$primary-color;
+      opacity: 1;
+    }
+  }
+
+  @media (min-width: 800px) {
+    .reel {
+      max-width: 400px;
+
+      .reel-title {
+        font-size: 1.4rem;
+      }
+    }
+    .parrafoEquipo{
+        width: 90%;
+    }
+    .borders {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    
+        .border-top {
+          position: absolute;
+          top: 4.2rem;
+          height: 2px; // Grosor del borde
+          background-color: vars.$secondary-color;
+    
+          &-left {
+            left: 1.5rem;
+            width: 15%; // Ajusta este valor según sea necesario
+          }
+    
+          &-right {
+            right: 1.5rem !important;
+            width: 15%; // Ajusta este valor según sea necesario
+          }
+        }
+    
+        .border-right {
+          position: absolute;
+          right: 1.5rem !important;
+          width: 2px; // Grosor del borde
+          background-color: vars.$secondary-color;
+    
+          &-top {
+            top: 4.2rem;
+            height: 50% !important; // Ajusta este valor según sea necesario
+          }
+    
+          &-bottom {
+            bottom: 12rem;
+            height: 50%; // Ajusta este valor según sea necesario
+          }
+        }
+    
+        .border-bottom {
+          position: absolute;
+          bottom: 12rem;
+          height: 2px; // Grosor del borde
+          background-color: vars.$secondary-color;
+    
+          &-left {
+            left: 1.5rem;
+            width: 50%; // Ajusta este valor según sea necesario
+          }
+    
+          &-right {
+            right: 1.5rem !important;
+            width: 50%; // Ajusta este valor según sea necesario
+          }
+        }
+    
+        .border-left {
+          position: absolute;
+          left: 1.5rem;
+          width: 2px; // Grosor del borde
+          background-color: vars.$secondary-color;
+    
+          &-top {
+            top: 4.2rem;
+            height: 15%; // Ajusta este valor según sea necesario
+          }
+    
+          &-bottom {
+            bottom: 12rem;
+            height: 15%; // Ajusta este valor según sea necesario
+          }
+        }
+      }
+  }
+
+  @media (min-width: 1020px) {
+    .reel {
+      max-width: 450px;
+
+      .reel-title {
+        font-size: 1.6rem;
+      }
+    }
+    .tituloEquipo{
+        font-size: 2.5rem !important;
+        position: relative;
+        bottom: 10px;
+    }
+    .parrafoEquipo{
+        font-size: 1.2rem;
+    }
+  }
+}

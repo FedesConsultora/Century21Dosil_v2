@@ -3,6 +3,10 @@
 @use 'sass:color';
 @use '../utils/variables' as vars;
 
+
+.main-extendido.hidden {
+  display: none; /* Oculta MainExtendido cuando estamos en la ruta '/' */
+}
 .contact-page {
   position: relative; 
   font-family: vars.$primary-font;
@@ -179,7 +183,7 @@
       -o-border-radius: 15px;
       box-shadow: rgba($color: vars.$black-color , $alpha: 0.5) 0px 0px 10px 0px;
       &::placeholder {
-        color: vars.$white-color;
+        color: vars.$black-color;
       }
     }
 

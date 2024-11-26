@@ -1,12 +1,11 @@
 // src/pages/Home.js
 
 import React, { useEffect } from 'react';
-import BlogSection from '../components/BlogSection.js';
-import EquipoSection from '../components/EquipoSection.js';
+
 
 const Home = () => {
   useEffect(() => {
-    // Si hay un hash en la URL, hacemos scroll a esa sección
+
     const hash = window.location.hash;
     if (hash) {
       const element = document.getElementById(hash.replace('#', ''));
@@ -17,37 +16,40 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-page">
-      {/* Div para los bordes personalizados */}
-      <div className="borders">
-        {/* Borde superior dividido en dos segmentos */}
-        <div className="border-top border-top-left"></div>
-        <div className="border-top border-top-right"></div>
-
-        {/* Borde derecho dividido en dos segmentos */}
-        <div className="border-right border-right-top"></div>
-        <div className="border-right border-right-bottom"></div>
-
-        {/* Borde inferior dividido en dos segmentos */}
-        <div className="border-bottom border-bottom-left"></div>
-        <div className="border-bottom border-bottom-right"></div>
-
-        {/* Borde izquierdo dividido en dos segmentos */}
-        <div className="border-left border-left-top"></div>
-        <div className="border-left border-left-bottom"></div>
-      </div>
-
-      <section id="inicio">
-        <h1>
-          Bienvenido a <span>Century21Dosil</span>
-        </h1>
-        <div className="image-container">
-          <img src="/assets/images/homeImage.webp" alt="Imagen de Inicio" />
+    <>
+      <div className="home-page">
+        <div className="borders">
+          <div className="border-top border-top-left"></div>
+          <div className="border-top border-top-right"></div>
+          <div className="border-right border-right-top"></div>
+          <div className="border-right border-right-bottom"></div>
+          <div className="border-bottom border-bottom-left"></div>
+          <div className="border-bottom border-bottom-right"></div>
+          <div className="border-left border-left-top"></div>
+          <div className="border-left border-left-bottom"></div>
         </div>
-      </section>
-      <BlogSection />
-      <EquipoSection />
-    </div>
+        
+        <section id="inicio">
+          <article className="textoYfoto">
+            <div className="texto_contacto_container">
+              <h1 className="titulo">
+              Hacemos realidad el <span>sueño de tu hogar</span></h1>
+              <h2 className='subTitulo'>Con profesionalismo e integ<span className='dotted'>ridad</span></h2>
+              <p className="footerText">
+              Muchas opciones para que elijas lo que mejor se adapta a vos: deptos, casas, PHs, lotes. Todo en las zonas más hermosas al mejor precio.
+              </p>
+            </div>
+            <div className="foto_contacto_container">
+            <img
+                  src="/assets/images/edificioContactoMobile.webp"
+                  alt="Foto de la propiedad"
+                />
+            </div>
+          </article>
+        </section>
+      </div>
+      <div className="spacerHome"></div>
+    </>
   );
 };
 

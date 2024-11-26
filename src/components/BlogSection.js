@@ -4,10 +4,17 @@ import React from 'react';
 import BlogCarousel from './BlogCarousel.js';
 
 const BlogSection = () => (
-  <section id="blog">
-    <h2>Blog</h2>
-    <BlogCarousel />
-  </section>
+  <div className="blog-section-container">
+    <div className="spacer-blog"></div>
+    <div id="blog" className="blog-section">
+      <article className="texto-container">
+        <h2 className="titulo-blog">Últimas novedades inmobiliarias</h2>
+
+      </article>
+      <BlogCarousel />
+    </div>
+    <div className="spacer-blog"></div>
+  </div>
 );
 
 export default BlogSection;

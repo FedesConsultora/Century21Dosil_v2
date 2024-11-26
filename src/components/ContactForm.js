@@ -65,7 +65,6 @@ const ContactForm = () => {
         body: params,
       });
 
-      // Como no podemos leer la respuesta, asumimos que la solicitud fue exitosa
       Swal.fire({
         icon: 'success',
         title: '¡Éxito!',

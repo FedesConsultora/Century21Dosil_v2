@@ -1,0 +1,145 @@
+// src/components/blogSection.scss
+
+@use '../utils/variables' as vars;
+@use '../utils/mixins' as mixins;
+
+.blog-section-container {
+  background-image: url('/public/assets/images/FondoBlog.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.spacer-blog {
+  height: 2rem;
+}
+
+.blog-section {
+  width: 100%;
+  padding: 20px 0;
+
+  .texto-container {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .titulo-blog {
+      color: vars.$secondary-color;
+      padding-top: 3rem;
+      margin-bottom: 2rem;
+      font-weight: 900;
+      font-size: 2.3rem;
+    }
+
+    .parrafo-blog {
+      color: vars.$secondary-color;
+      font-weight: 600;
+    }
+  }
+
+  .swiper {
+    width: 100%;
+    height: auto;
+    margin-bottom: 4rem;
+    padding: 1rem; // Reducir padding si es necesario
+    padding-right: 1rem !important;
+    max-width: 90%;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .blog-note-link {
+    text-decoration: none;
+    color: inherit;  
+    width: 100%;
+    margin-bottom: 2.5rem;
+  }
+
+  .blog-note {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: rgba($color: vars.$primary-color, $alpha: 0.7);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: rgba($color: vars.$black-color, $alpha: 0.6) 0px 0px 15px;
+    padding: 2rem;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(vars.$black-color, 0.15);
+    }
+
+    img {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      object-fit: cover;
+    }
+
+    .note-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      padding: 2rem;
+      text-align: left;
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: vars.$secondary-color;
+        margin-top: 0.5rem;
+        padding-right: 1rem;
+      }
+      .flecha{
+        width: 60px;
+        height: fit-content;
+      }
+
+    }
+  }
+
+  // Estilos de los botones de paginación (rectangulares)
+  .swiper-pagination-bullet {
+    background: vars.$secondary-color;
+    opacity: 0.7;
+    width: 4rem;
+    height: 10px;
+    border-radius: 0;
+
+    &.swiper-pagination-bullet-active {
+      background: vars.$primary-color;
+      opacity: 1;
+    }
+  }
+
+  // Ocultar las flechas de navegación
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+
+  // Ajustes para pantallas más grandes (opcional)
+  @media (min-width: 1024px) {
+    .titulo-blog {
+      font-size: 3.5rem !important;
+    }
+
+    .parrafo-blog {
+      font-size: 1.2rem;
+    }
+    .swiper-slide {
+       margin-right: 1rem !important;
+    }
+  }
+}
