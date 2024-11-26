@@ -31,7 +31,7 @@ const Contact = () => (
             <p className="precio">u$d 79.500</p>
           </article>
           <p className="footerText">
-            Si llegaste hasta acá, completá con tus datos para contactarnos:
+            Si llegaste hasta acá, completá con tus datos para que podamos contactarnos:
           </p>
         </div>
         <div className="foto_contacto_container">

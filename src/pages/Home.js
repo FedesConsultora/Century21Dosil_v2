@@ -36,7 +36,7 @@ const Home = () => {
               Hacemos realidad el <span>sueño de tu hogar</span></h1>
               <h2 className='subTitulo'>Con profesionalismo e integ<span className='dotted'>ridad</span></h2>
               <p className="footerText">
-              Muchas opciones para que elijas lo que mejor se adapta a vos: deptos, casas, PHs, lotes. Todo en las zonas más hermosas al mejor precio.
+              Muchas opciones para que elijas lo que mejor se adapta a vos: deptos, casas, PHs, lotes. Todo en las zonas más hermosas y al mejor precio.
               </p>
             </div>
             <div className="foto_contacto_container">

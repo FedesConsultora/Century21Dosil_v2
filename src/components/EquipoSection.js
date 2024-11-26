@@ -83,7 +83,7 @@ const EquipoCarousel = () => {
         </div>
         <article className='textoContainer'>
           <h2 className='tituloEquipo'>Nuestro equipo y cómo trabajamos</h2>
-          <p className='parrafoEquipo'>Comprar una casa no es cualquier cosa y lo sabemos: <strong>nos lo tomamos en serio</strong> y te damos una experiencia donde no te vas a llevar ningún fiasco.</p>
+          <p className='parrafoEquipo'>Comprar una casa no es cualquier cosa y lo sabemos: <strong>nos lo tomamos en serio</strong> y te aseguramos una experiencia en la que no te vas a llevar ningún fiasco.</p>
         </article>
         
         <Swiper
