@@ -1512,14 +1512,14 @@ header .header-container .nav-menu.active {
   justify-content: start;
 }
 .blog-section .blog-note .note-content h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 500;
   color: #606060;
   margin-top: 0.5rem;
   padding-right: 1rem;
 }
 .blog-section .blog-note .note-content .flecha {
-  width: 60px;
+  width: 50px;
   height: fit-content;
 }
 .blog-section .swiper-pagination-bullet {
