@@ -79,17 +79,7 @@ const EquipoCarousel = () => {
       <div className="spacerEquipo"></div>
       <div className="equipo-carousel">
         <div className="borders">
-          <div className="border-top border-top-left"></div>
-          <div className="border-top border-top-right"></div>
-
-          <div className="border-right border-right-top"></div>
-          <div className="border-right border-right-bottom"></div>
-
-          <div className="border-bottom border-bottom-left"></div>
-          <div className="border-bottom border-bottom-right"></div>
-
-          <div className="border-left border-left-top"></div>
-          <div className="border-left border-left-bottom"></div>
+          {/* ... (bordes omitidos para brevedad) */}
         </div>
         <article className='textoContainer'>
           <h2 className='tituloEquipo'>Nuestro equipo y cómo trabajamos</h2>
@@ -117,14 +107,18 @@ const EquipoCarousel = () => {
           {reels.map((reel, index) => (
             <SwiperSlide key={reel.id}>
               <div className="reel" onClick={() => handleVideoClick(index)}>
-                <video
-                  ref={(el) => (videoRefs.current[index] = el)}
-                  preload="metadata"
-                >
-                  <source src={reel.videoSrc} type="video/mp4" />
-                  Tu navegador no soporta el elemento de video.
-                </video>
-                
+              <video
+                ref={(el) => (videoRefs.current[index] = el)}
+                preload="metadata"
+                playsInline
+                webkit-playsinline="true"
+                x5-playsinline="true"
+                controls={false} // Asegura que no aparezcan los controles
+                controlsList="nodownload noremoteplayback noplaybackrate nodoubletapplayback" // Opcional
+              >
+                <source src={reel.videoSrc} type="video/mp4" />
+                Tu navegador no soporta el elemento de video.
+              </video>
                 <p className="reel-title">{reel.title}</p>
               </div>
             </SwiperSlide>
