@@ -18,7 +18,7 @@ const BlogCarousel = () => {
     {
       id: 2,
       imageSrc: '/assets/images/blog2.jpg',
-      title: 'Efecto de los créditos hipotecarios en la economía.',
+      title: 'Efecto de los créditos hipotecarios.',
       link: 'https://eleconomista.com.ar/economia/efecto-creditos-hipotecarios-blanqueo-demanda-inmuebles-disparo-100-anual-caba-n78900',
     },
     {
@@ -36,11 +36,11 @@ const BlogCarousel = () => {
       slidesPerView={1}
       pagination={{ clickable: true }}
       breakpoints={{
-        600: {
+        800: {
           slidesPerView: 2,
           spaceBetween: 20,
         },
-        1024: {
+        1200: {
           slidesPerView: 3,
           spaceBetween: 50,
         },

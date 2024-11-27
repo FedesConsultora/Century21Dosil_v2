@@ -1458,6 +1458,10 @@ header .header-container .nav-menu.active {
   color: #606060;
   font-weight: 600;
 }
+.blog-section .swiper-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 .blog-section .swiper {
   width: 100%;
   height: auto;
@@ -1536,15 +1540,20 @@ header .header-container .nav-menu.active {
 .blog-section .swiper-button-next {
   display: none !important;
 }
+@media (min-width: 800px) {
+  .blog-section .note-content h3 {
+    font-size: 1.15rem !important;
+  }
+}
 @media (min-width: 1024px) {
   .blog-section .titulo-blog {
     font-size: 3.5rem !important;
   }
+  .blog-section .note-content h3 {
+    font-size: 1.25rem !important;
+  }
   .blog-section .parrafo-blog {
     font-size: 1.2rem;
-  }
-  .blog-section .swiper-slide {
-    margin-right: 1rem !important;
   }
 }
 

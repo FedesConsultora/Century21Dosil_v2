@@ -5,10 +5,8 @@ import DatoItem from './DatoItem.js';
 
 const DatosSection = () => {
   const datos = [
-    { propiedades: 'Propiedades', entregadas: 'Entregadas', numero: 150 },
-    { propiedades: 'Propiedades', entregadas: 'Entregadas', numero: 200 },
-    { propiedades: 'Propiedades', entregadas: 'Entregadas', numero: 300 },
-    { propiedades: 'Propiedades', entregadas: 'Entregadas', numero: 400 },
+    { propiedades: 'Familias', entregadas: 'Mudadas', numero: 132 },
+    { propiedades: 'Operaciones', entregadas: 'Exitosas', numero: 66 },
   ];
 
   return (

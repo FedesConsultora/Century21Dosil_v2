@@ -11,14 +11,15 @@ const DatoItem = ({ propiedades, entregadas, numero }) => {
   useEffect(() => {
     let startTimestamp = null;
     let reqId;
+    const duration = 2000; // Duración de la animación en milisegundos
 
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = timestamp - startTimestamp;
-      const progressRatio = Math.min(progress / 4000, 1); 
+      const progressRatio = Math.min(progress / duration, 1); 
       setCount(Math.ceil(progressRatio * numero));
 
-      if (progress < 2000) {
+      if (progress < duration) {
         reqId = requestAnimationFrame(step);
       }
     };

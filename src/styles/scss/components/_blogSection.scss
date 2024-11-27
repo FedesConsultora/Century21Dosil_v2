@@ -37,8 +37,11 @@
       font-weight: 600;
     }
   }
-
-  .swiper {
+  .swiper-wrapper{
+    display: flex;
+    justify-content: space-between;
+  }
+  .swiper{
     width: 100%;
     height: auto;
     margin-bottom: 4rem;
@@ -128,18 +131,27 @@
   .swiper-button-next {
     display: none !important;
   }
+  @media (min-width: 800px) {
+    .note-content {
 
+      h3 {
+        font-size: 1.15rem !important;
+      }
+    }
+  }
   // Ajustes para pantallas más grandes (opcional)
   @media (min-width: 1024px) {
     .titulo-blog {
       font-size: 3.5rem !important;
     }
+    .note-content {
 
+      h3 {
+        font-size: 1.25rem !important;
+      }
+    }
     .parrafo-blog {
       font-size: 1.2rem;
-    }
-    .swiper-slide {
-       margin-right: 1rem !important;
     }
   }
 }
