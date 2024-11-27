@@ -119,7 +119,6 @@ const EquipoCarousel = () => {
                 <source src={reel.videoSrc} type="video/mp4" />
                 Tu navegador no soporta el elemento de video.
               </video>
-                <p className="reel-title">{reel.title}</p>
               </div>
             </SwiperSlide>
           ))}
