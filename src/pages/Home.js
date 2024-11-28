@@ -36,6 +36,10 @@ const Home = () => {
               <h1 className="titulo">
               Hacemos realidad el <span>sueño de tu hogar</span></h1>
               <h2 className='subTitulo'>Con profesionalismo e integ<span className='dotted'>ridad</span></h2>
+              <article className="propiedad_container">
+                <p className="titulo">Propiedades desde</p>
+                <p className="precio">u$d 79.500</p>
+              </article>
               <p className="footerText">
               Muchas opciones para que elijas lo que mejor se adapta a vos: deptos, casas, PHs, lotes. Todo en las zonas más hermosas y al mejor precio.
               </p>

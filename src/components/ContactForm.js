@@ -59,7 +59,7 @@ const ContactForm = () => {
       }
       params.append('secretKey', '684ec2a8d2241300bfbb228adfbb2883b52bedc29c2d7613d3d04e598035fe499e9695a045d22f8327d64d5760f3f8c6521c6e71f3dca67755dcf12fa1ff0840');
 
-      await fetch('https://script.google.com/macros/s/AKfycbzAckegIvl-Wu3Lq3mh5UjJ5bzgKE5izU89LIeDBi5_RZB0UoPxMZUajirtRsm4wY_BKg/exec', {
+      await fetch('', {
         method: 'POST',
         mode: 'no-cors',
         body: params,
@@ -68,7 +68,7 @@ const ContactForm = () => {
       Swal.fire({
         icon: 'success',
         title: '¡Éxito!',
-        text: 'Tu mensaje ha sido enviado correctamente.',
+        text: 'Tu consulta fue enviada con éxito, será contactado a la brevedad',
       });
 
       // Resetear el formulario

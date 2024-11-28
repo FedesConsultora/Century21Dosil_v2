@@ -2,6 +2,52 @@
 
 @use 'sass:color';
 @use '../utils/variables' as vars;
+.swal2-popup {
+  background-color: vars.$white-color !important;
+  font-family: vars.$primary-font !important;
+  color: vars.$black-color !important;
+  border-radius: 15px !important;
+  box-shadow: 0 5px 15px rgba(vars.$black-color, 0.3) !important;
+}
+
+.swal2-title {
+  color: vars.$primary-color !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+}
+
+.swal2-content {
+  color: vars.$secondary-color !important;
+  font-size: 1.2rem !important;
+}
+
+.swal2-confirm {
+  background-color: vars.$primary-color !important;
+  color: vars.$white-color !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 0.6rem 1.5rem !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  box-shadow: 0 3px 6px rgba(vars.$black-color, 0.2) !important;
+  transition: background-color 0.3s ease !important;
+  
+  &:hover {
+    background-color: color.adjust(vars.$primary-color, $lightness: -10%) !important;
+  }
+}
+
+.swal2-icon-success {
+  color: vars.$primary-color !important;
+}
+
+.swal2-icon-error {
+  color: #FF6B6B !important; // Puedes ajustar este color según tu preferencia
+}
+
+.swal2-close {
+  color: vars.$secondary-color !important;
+}
 
 .home-page {
   position: relative;
@@ -96,6 +142,7 @@
       padding-top: 0rem;
       .texto_contacto_container{
         text-align: start;
+        
         .titulo {
           font-size: 2rem;
           font-weight: 900;
@@ -109,6 +156,7 @@
             text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
           }
         }
+        
         .subTitulo{
           font-size: 1.2rem;
           color: vars.$white-color;
@@ -117,11 +165,36 @@
           padding: 0.5rem;
           padding-right: 4rem;
           padding-left: 1.5rem;
-          margin-bottom: 3rem;
           width: calc(100% + 3rem);
           margin-left: -1.5rem;
+          margin-bottom: 1.5rem;
           .dotted{
             text-decoration: underline;
+          }
+        }
+        .propiedad_container {
+          margin-left: -1rem;
+          width: calc(100% + 3rem);
+          margin-left: -1.5rem;
+          padding: 0.7rem;
+          padding-left: 1.5rem;
+          background-color: rgba(0, 0, 0, 0.3);
+          margin-bottom: 3rem;
+          .titulo {
+            font-size: 1.5rem;
+            color: vars.$white-color;
+            text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+            font-weight: 500;
+            text-align: start;
+            padding-top: 0 !important;
+          }
+  
+          .precio {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: vars.$white-color;
+            -webkit-text-stroke: 0.5px vars.$secondary-color;
+            text-align: start;
           }
         }
         .footerText{
@@ -151,6 +224,7 @@
         border-radius: 20px;
         margin-bottom: 1rem;
         margin-top: 2rem;
+        height: fit-content;
         .form-group{
           width: 100%;
           display: flex;
@@ -170,6 +244,7 @@
         -ms-border-radius: 15px;
         -o-border-radius: 15px;
         box-shadow: rgba($color: vars.$black-color , $alpha: 0.5) 0px 0px 10px 0px;
+        
         &::placeholder {
           color: vars.$black-color;
           font-family: vars.$primary-font;
@@ -180,7 +255,7 @@
 
       textarea {
         resize: vertical;
-        min-height: 100px;
+        min-height: 170px;
         &::placeholder {
           color: vars.$black-color;
           font-family: vars.$primary-font;
@@ -330,6 +405,31 @@
             margin-left: -3rem;
             .dotted{
               text-decoration: underline;
+            }
+          }
+          .propiedad_container {
+            margin-left: -1rem;
+            width: calc(100% + 3rem);
+            margin-left: -3rem;
+            padding: 0.7rem;
+            padding-left: 3rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            margin-bottom: 3rem;
+            .titulo {
+              font-size: 1.5rem;
+              color: vars.$white-color;
+              text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+              font-weight: 500;
+              text-align: start;
+              padding-top: 0 !important;
+            }
+    
+            .precio {
+              font-size: 1.5rem;
+              font-weight: 900;
+              color: vars.$white-color;
+              -webkit-text-stroke: 0.5px vars.$secondary-color;
+              text-align: start;
             }
           }
           .footerText{
