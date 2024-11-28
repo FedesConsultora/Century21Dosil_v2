@@ -631,8 +631,8 @@ header .header-container .nav-menu.active {
   color: #606060;
   margin: 1rem 0.75rem;
   padding: 1rem 0.75rem;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
 }
 .home-page .borders {
   position: absolute;
@@ -665,7 +665,7 @@ header .header-container .nav-menu.active {
 }
 .home-page .borders .border-right-top {
   top: 0;
-  height: 10%;
+  height: 5%;
 }
 .home-page .borders .border-right-bottom {
   bottom: 0;
@@ -693,7 +693,7 @@ header .header-container .nav-menu.active {
 }
 .home-page .borders .border-left-top {
   top: 0;
-  height: 12%;
+  height: 8%;
 }
 .home-page .borders .border-left-bottom {
   bottom: 0;
@@ -707,6 +707,7 @@ header .header-container .nav-menu.active {
 }
 .home-page #inicio .textoYfoto {
   display: flex;
+  flex-direction: column;
   padding-top: 0rem;
 }
 .home-page #inicio .textoYfoto .texto_contacto_container {
@@ -751,6 +752,67 @@ header .header-container .nav-menu.active {
 }
 .home-page #inicio .textoYfoto .foto_contacto_container img {
   display: none;
+}
+.home-page #inicio .textoYfoto .contact-form {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 1.4rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+.home-page #inicio .textoYfoto .contact-form .form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-page #inicio .textoYfoto .contact-form input,
+.home-page #inicio .textoYfoto .contact-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #606060;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.666);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  box-shadow: rgba(34, 34, 34, 0.5) 0px 0px 10px 0px;
+}
+.home-page #inicio .textoYfoto .contact-form input::placeholder,
+.home-page #inicio .textoYfoto .contact-form textarea::placeholder {
+  color: #222222;
+}
+.home-page #inicio .textoYfoto .contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.home-page #inicio .textoYfoto .contact-form button {
+  padding: 0.75rem 2rem;
+  background-color: #BCAD86;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  box-shadow: rgba(34, 34, 34, 0.5) 0px 0px 10px 0px;
+}
+.home-page #inicio .textoYfoto .contact-form button:hover {
+  background-color: rgb(169.8244680851, 150.7553191489, 101.1755319149);
 }
 
 .spacerHome {
@@ -828,6 +890,7 @@ header .header-container .nav-menu.active {
   }
   .home-page #inicio .textoYfoto {
     display: flex;
+    flex-direction: row;
   }
   .home-page #inicio .textoYfoto .texto_contacto_container {
     text-align: start;
@@ -877,10 +940,8 @@ header .header-container .nav-menu.active {
     width: 100%;
     max-width: 600px;
   }
-  .home-page #inicio .textoYfoto .foto_contacto_container img {
-    display: flex;
-    width: 20rem;
-    height: fit-content;
+  .home-page #inicio .textoYfoto .contact-form {
+    width: 40rem;
   }
 }
 @media (min-width: 1024px) {
@@ -921,11 +982,11 @@ header .header-container .nav-menu.active {
   }
   .home-page .borders .border-right-top {
     top: 0;
-    height: 12% !important;
+    height: 15.2% !important;
   }
   .home-page .borders .border-right-bottom {
     bottom: 0;
-    height: 11%;
+    height: 10.1%;
   }
   .home-page .borders .border-bottom {
     position: absolute;
@@ -1005,6 +1066,25 @@ header .header-container .nav-menu.active {
     display: flex;
     width: 25rem;
     height: fit-content;
+  }
+}
+@media (min-width: 1424px) {
+  .contact-form {
+    width: 30rem !important;
+  }
+  .border-right {
+    position: absolute;
+    right: 6.9rem !important;
+    width: 2px;
+    background-color: #FFFFFF;
+  }
+  .border-right-top {
+    top: 0;
+    height: 15.9% !important;
+  }
+  .border-right-bottom {
+    bottom: 0;
+    height: 10.6% !important;
   }
 }
 .footer {

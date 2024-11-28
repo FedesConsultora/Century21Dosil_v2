@@ -36,9 +36,9 @@ const Header = () => {
           </div>
           <ul>
             <li>
-              <Link to="/contacto" onClick={() => setMenuOpen(false)}>
+            <a href="#contacto" onClick={(e) => handleLinkClick(e, 'contacto')}>
                 Contacto
-              </Link>
+              </a>
             </li>
             <li>
               <Link to="/" onClick={() => setMenuOpen(false)}>

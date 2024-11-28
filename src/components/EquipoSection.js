@@ -1,5 +1,4 @@
 // src/components/EquipoCarousel.js
-
 import React, { useRef, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
@@ -24,7 +23,6 @@ const EquipoCarousel = () => {
       videoSrc: '/assets/video/reel3.mp4',
       title: 'Reel del Agente 3',
     },
-    // Agrega más reels según sea necesario
   ];
 
   const videoRefs = useRef([]);
@@ -79,7 +77,6 @@ const EquipoCarousel = () => {
       <div className="spacerEquipo"></div>
       <div className="equipo-carousel">
         <div className="borders">
-          {/* ... (bordes omitidos para brevedad) */}
         </div>
         <article className='textoContainer'>
           <h2 className='tituloEquipo'>Nuestro equipo y cómo trabajamos</h2>

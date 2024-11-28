@@ -1,6 +1,7 @@
 // src/pages/Home.js
 
 import React, { useEffect } from 'react';
+import ContactForm from '../components/ContactForm.js';
 
 
 const Home = () => {
@@ -17,7 +18,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="home-page">
+      <div id="contacto" className="home-page">
         <div className="borders">
           <div className="border-top border-top-left"></div>
           <div className="border-top border-top-right"></div>
@@ -30,7 +31,7 @@ const Home = () => {
         </div>
         
         <section id="inicio">
-          <article className="textoYfoto">
+          <article  className="textoYfoto">
             <div className="texto_contacto_container">
               <h1 className="titulo">
               Hacemos realidad el <span>sueño de tu hogar</span></h1>
@@ -39,12 +40,8 @@ const Home = () => {
               Muchas opciones para que elijas lo que mejor se adapta a vos: deptos, casas, PHs, lotes. Todo en las zonas más hermosas y al mejor precio.
               </p>
             </div>
-            <div className="foto_contacto_container">
-            <img
-                  src="/assets/images/edificioContactoDesktop.webp"
-                  alt="Foto de la propiedad"
-                />
-            </div>
+            <ContactForm />
+            
           </article>
         </section>
       </div>

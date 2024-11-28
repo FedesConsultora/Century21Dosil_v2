@@ -93,7 +93,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="contact-form">
+    <form  onSubmit={handleSubmit} className="contact-form">
       <div className="form-group">
         <input
           type="text"

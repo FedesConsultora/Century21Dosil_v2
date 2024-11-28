@@ -9,8 +9,8 @@
   color: vars.$secondary-color;
   margin: 1rem 0.75rem;
   padding: 1rem 0.75rem;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
   .borders {
     position: absolute;
     top: 0;
@@ -45,7 +45,7 @@
 
       &-top {
         top: 0;
-        height: 10%; 
+        height: 5%; 
       }
       &-bottom {
         bottom: 0;
@@ -77,7 +77,7 @@
 
       &-top {
         top: 0;
-        height: 12%; 
+        height: 8%; 
       }
       &-bottom {
         bottom: 0;
@@ -92,6 +92,7 @@
     z-index: 2;
     .textoYfoto{
       display: flex;
+      flex-direction: column;
       padding-top: 0rem;
       .texto_contacto_container{
         text-align: start;
@@ -137,6 +138,68 @@
       .foto_contacto_container{
         img{
           display: none;
+        }
+      }
+      .contact-form {
+        position: relative; 
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.3);
+        padding: 1.4rem;
+        border-radius: 20px;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+        .form-group{
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        input,
+        textarea {
+          width: 100%;
+          margin-bottom: 1rem;
+          padding: 0.75rem;
+          font-size: 1rem;
+          border: 1px solid vars.$secondary-color;
+          border-radius: 15px;
+          background-color: rgba(255, 255, 255, 0.666);
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          -ms-border-radius: 15px;
+          -o-border-radius: 15px;
+          box-shadow: rgba($color: vars.$black-color , $alpha: 0.5) 0px 0px 10px 0px;
+          &::placeholder {
+            color: vars.$black-color;
+          }
+        }
+    
+        textarea {
+          resize: vertical;
+          min-height: 100px;
+        }
+    
+        button {
+          padding: 0.75rem 2rem;
+          background-color: vars.$primary-color;
+          color: vars.$white-color;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 1rem;
+          transition: background-color 0.3s ease;
+          width: 100%;
+          border-radius: 15px;
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          -ms-border-radius: 15px;
+          -o-border-radius: 15px;
+          box-shadow: rgba($color: vars.$black-color , $alpha: 0.5) 0px 0px 10px 0px;
+          &:hover {
+            background-color: color.adjust(vars.$primary-color, $lightness: -10%);
+          }
         }
       }
     }
@@ -231,6 +294,7 @@
     #inicio {
       .textoYfoto{
         display: flex;
+        flex-direction: row;
         .texto_contacto_container{
           text-align: start;
           .titulo {
@@ -280,12 +344,8 @@
             }
           }
         }
-        .foto_contacto_container{
-          img{
-            display: flex;
-            width: 20rem;
-            height: fit-content;
-          }
+        .contact-form{
+          width: 40rem;
         }
       }
     }
@@ -333,11 +393,11 @@
   
         &-top {
           top: 0;
-          height: 12% !important;
+          height: 15.2% !important;
         }
         &-bottom {
           bottom: 0;
-          height: 11%; 
+          height: 10.1%; 
         }
       }
   
@@ -429,6 +489,29 @@
           }
         }
       }
+    }
+  }
+
+}
+
+@media (min-width: 1424px) {
+
+  .contact-form{
+    width: 30rem !important;
+  }
+  .border-right {
+    position: absolute;
+    right: 6.9rem !important;
+    width: 2px; 
+    background-color: vars.$white-color;
+
+    &-top {
+      top: 0;
+      height: 15.9% !important;
+    }
+    &-bottom {
+      bottom: 0;
+      height: 10.6% !important; 
     }
   }
 
