@@ -41,7 +41,10 @@ const ContactForm = () => {
       setStatusMessage('Por favor, completa todos los campos obligatorios.');
       return;
     }
-
+    if (formData.telefono && !/^\d+$/.test(formData.telefono)) {
+      setStatusMessage('Por favor, ingresa un número de teléfono válido.');
+      return;
+    }
     if (!isValidEmail(formData.email)) {
       setStatusMessage('Por favor, ingresa un correo electrónico válido.');
       return;
@@ -59,7 +62,7 @@ const ContactForm = () => {
       }
       params.append('secretKey', '684ec2a8d2241300bfbb228adfbb2883b52bedc29c2d7613d3d04e598035fe499e9695a045d22f8327d64d5760f3f8c6521c6e71f3dca67755dcf12fa1ff0840');
 
-      await fetch('', {
+      await fetch('https://script.google.com/macros/s/AKfycbxx1QQROZeSunCBWWq-wrZn_Rfm-AUtvDysm3ywshsK13AozRq-Wz2cyV2n-BcGshPDpQ/exec', {
         method: 'POST',
         mode: 'no-cors',
         body: params,
@@ -68,7 +71,7 @@ const ContactForm = () => {
       Swal.fire({
         icon: 'success',
         title: '¡Éxito!',
-        text: 'Tu consulta fue enviada con éxito, será contactado a la brevedad',
+        text: 'Tu consulta fue enviada con éxito, seras contactado a la brevedad',
       });
 
       // Resetear el formulario
