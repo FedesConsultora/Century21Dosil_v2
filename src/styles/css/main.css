@@ -681,7 +681,6 @@ header .header-container .nav-menu.active {
   position: relative;
   font-family: "Mont", sans-serif;
   color: #606060;
-  margin: 1rem 0.75rem;
   padding: 1rem 0.75rem;
   padding-top: 5rem;
   padding-bottom: 3rem;
@@ -1746,6 +1745,94 @@ header .header-container .nav-menu.active {
   }
   .blog-section .parrafo-blog {
     font-size: 1.2rem;
+  }
+}
+
+.spacerHome {
+  height: 2rem;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.thank-you-section {
+  text-align: center;
+  font-family: "Mont", sans-serif;
+  color: #606060;
+  border-radius: 15px;
+  margin: 2rem;
+  width: 100%;
+  align-self: center;
+  margin-top: 0rem;
+}
+.thank-you-section .check-animation {
+  display: flex;
+  justify-content: center;
+}
+.thank-you-section .check-animation svg, .thank-you-section .check-animation video {
+  width: 200px;
+  height: 200px;
+}
+.thank-you-section h2 {
+  font-size: 2.5rem;
+  color: #BCAD86;
+  margin-bottom: 1rem;
+  font-weight: 900;
+}
+.thank-you-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  color: #FFFFFF;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-left: -0.75rem;
+  width: calc(100% + 1.5rem);
+}
+.thank-you-section .return-home-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: #BCAD86;
+  color: #FFFFFF;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+.thank-you-section .return-home-btn:hover {
+  background-color: rgb(169.8244680851, 150.7553191489, 101.1755319149);
+}
+@media (min-width: 800px) {
+  .thank-you-section .check-animation svg, .thank-you-section .check-animation video {
+    width: 250px;
+    height: 250px;
+  }
+  .thank-you-section h2 {
+    font-size: 3rem;
+  }
+  .thank-you-section p {
+    font-size: 1.4rem;
+    margin-left: -2rem;
+    width: calc(100% + 4rem);
+  }
+}
+@media (min-width: 1024px) {
+  .thank-you-section p {
+    margin-left: -4rem;
+    width: calc(100% + 7rem);
+  }
+}
+@media (min-width: 1200px) {
+  .thank-you-section .check-animation svg, .thank-you-section .check-animation video {
+    width: 300px;
+    height: 300px;
+  }
+  .thank-you-section h2 {
+    font-size: 3.2rem;
+  }
+  .thank-you-section p {
+    font-size: 1.5rem;
   }
 }
 

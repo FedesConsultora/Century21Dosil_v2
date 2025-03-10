@@ -1,10 +1,9 @@
-// src/components/ContactForm.js
-
 import React, { useState } from 'react';
 import DOMPurify from 'dompurify';
-import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const ContactForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
@@ -16,27 +15,16 @@ const ContactForm = () => {
   const [statusMessage, setStatusMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Función para validar el correo electrónico
-  const isValidEmail = (email) => {
-    // Expresión regular para validar email
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  };
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  // Función para manejar cambios en los inputs
   const handleChange = (e) => {
-    // Sanitizar la entrada en tiempo real
-    const value = e.target.value;
-    const sanitizedValue = DOMPurify.sanitize(value);
-
+    const sanitizedValue = DOMPurify.sanitize(e.target.value);
     setFormData({ ...formData, [e.target.name]: sanitizedValue });
   };
 
-  // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevenir el envío estándar del formulario
+    e.preventDefault();
 
-    // Validar los campos antes de enviar
     if (!formData.nombre || !formData.apellido || !formData.email || !formData.mensaje) {
       setStatusMessage('Por favor, completa todos los campos obligatorios.');
       return;
@@ -50,12 +38,10 @@ const ContactForm = () => {
       return;
     }
 
-    // Si todo está bien, permitir el envío
     setStatusMessage('');
     setIsSubmitting(true);
 
     try {
-      // Crear un objeto URLSearchParams para enviar los datos como formulario
       const params = new URLSearchParams();
       for (const key in formData) {
         params.append(key, formData[key]);
@@ -68,13 +54,10 @@ const ContactForm = () => {
         body: params,
       });
 
-      Swal.fire({
-        icon: 'success',
-        title: '¡Éxito!',
-        text: 'Tu consulta fue enviada con éxito, seras contactado a la brevedad',
-      });
+      // Redirigir al usuario a la página de agradecimiento
+      navigate('/thank-you');
 
-      // Resetear el formulario
+      // Resetear formulario
       setFormData({
         nombre: '',
         apellido: '',
@@ -84,11 +67,7 @@ const ContactForm = () => {
       });
 
     } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.',
-      });
+      setStatusMessage('Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.');
       console.error('Error:', error);
     } finally {
       setIsSubmitting(false);
@@ -96,7 +75,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form  onSubmit={handleSubmit} className="contact-form">
+    <form onSubmit={handleSubmit} className="contact-form">
       <div className="form-group">
         <input
           type="text"

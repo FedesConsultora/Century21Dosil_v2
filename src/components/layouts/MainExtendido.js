@@ -8,7 +8,7 @@ import BlogSection from '../BlogSection.js';
 
 const MainExtendido = () => {
   const location = useLocation();
-  const isContactPage = location.pathname === '/contacto';
+  const isThankYouPage = location.pathname === '/thank-you'; 
 
   useEffect(() => {
     if (location.state && location.state.scrollTo) {
@@ -21,7 +21,7 @@ const MainExtendido = () => {
   }, [location]);
 
   return (
-    <div className={`main-extendido ${isContactPage ? 'hidden' : ''}`}>
+    <div className={`main-extendido ${isThankYouPage ? 'hidden' : ''}`}>
       <DatosSection />
       <EquipoSection />
       <BlogSection />
