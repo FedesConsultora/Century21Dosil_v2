@@ -1,12 +1,11 @@
-// src/pages/Home.js
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ContactForm from '../components/ContactForm.js';
-
+import IntentSelector from '../components/IntentSelector.js';
 
 const Home = () => {
-  useEffect(() => {
+  const [userIntent, setUserIntent] = useState(null);
 
+  useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
       const element = document.getElementById(hash.replace('#', ''));
@@ -15,6 +14,11 @@ const Home = () => {
       }
     }
   }, []);
+
+  const handleIntentSelect = (intent) => {
+    setUserIntent(intent);
+    // Puedes guardar esta info en localStorage o enviar un evento de analítica si lo requieres
+  };
 
   return (
     <>
@@ -29,23 +33,29 @@ const Home = () => {
           <div className="border-left border-left-top"></div>
           <div className="border-left border-left-bottom"></div>
         </div>
-        
+
         <section id="inicio">
-          <article  className="textoYfoto">
+          <article className="textoYfoto">
             <div className="texto_contacto_container">
               <h1 className="titulo">
-              Hacemos realidad el <span>sueño de tu hogar</span></h1>
-              <h2 className='subTitulo'>Con profesionalismo e integ<span className='dotted'>ridad</span></h2>
+                Hacemos realidad el <span>sueño de tu hogar</span>
+              </h1>
+              <h2 className="subTitulo">
+                Con profesionalismo e integ<span className="dotted">ridad</span>
+              </h2>
               <article className="propiedad_container">
                 <p className="titulo">Propiedades desde</p>
                 <p className="precio">u$d 79.500</p>
               </article>
               <p className="footerText">
-              Muchas opciones para que elijas lo que mejor se adapta a vos: deptos, casas, PHs, lotes. Todo en las zonas más hermosas y al mejor precio.
+                Muchas opciones para que elijas lo que mejor se adapta a vos: deptos, casas, PHs, lotes. Todo en las zonas más hermosas y al mejor precio.
               </p>
             </div>
-            <ContactForm />
-            
+            {userIntent === null ? (
+              <IntentSelector onSelect={handleIntentSelect} />
+            ) : (
+              <ContactForm userIntent={userIntent} />
+            )}
           </article>
         </section>
       </div>

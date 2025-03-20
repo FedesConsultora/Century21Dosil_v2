@@ -1,20 +1,34 @@
-import React, { useState } from 'react';
+// src/components/ContactForm.js
+import React, { useState, useEffect } from 'react';
 import DOMPurify from 'dompurify';
 import { useNavigate } from 'react-router-dom';
 
-const ContactForm = () => {
+const ContactForm = ({ userIntent, defaultMessage = '' }) => {
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
     email: '',
     telefono: '',
     mensaje: '',
+    intent: userIntent || '', 
   });
 
   const [statusMessage, setStatusMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Al montar el componente, si se recibió un defaultMessage, lo seteamos
+  useEffect(() => {
+    if (defaultMessage) {
+      setFormData((prev) => ({
+        ...prev,
+        mensaje: defaultMessage,
+      }));
+    }
+  }, [defaultMessage]);
+
+  // Validaciones
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleChange = (e) => {
@@ -46,9 +60,10 @@ const ContactForm = () => {
       for (const key in formData) {
         params.append(key, formData[key]);
       }
-      params.append('secretKey', '684ec2a8d2241300bfbb228adfbb2883b52bedc29c2d7613d3d04e598035fe499e9695a045d22f8327d64d5760f3f8c6521c6e71f3dca67755dcf12fa1ff0840');
+      // Secreto
+      params.append('secretKey', '684ec2a8d2241300bfbb228adfbb2883...');
 
-      await fetch('https://script.google.com/macros/s/AKfycbxx1QQROZeSunCBWWq-wrZn_Rfm-AUtvDysm3ywshsK13AozRq-Wz2cyV2n-BcGshPDpQ/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbxoM2IuQo31XwjNI2wSeEjbd6Tm6crGJZtRRZwBp1MJJspU9rrXkvgNsD7clIRN-5SFAg/exec', {
         method: 'POST',
         mode: 'no-cors',
         body: params,
@@ -64,8 +79,8 @@ const ContactForm = () => {
         email: '',
         telefono: '',
         mensaje: '',
+        intent: userIntent || '',
       });
-
     } catch (error) {
       setStatusMessage('Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.');
       console.error('Error:', error);
@@ -118,7 +133,7 @@ const ContactForm = () => {
           value={formData.mensaje}
           onChange={handleChange}
           required
-        ></textarea>
+        />
       </div>
       <button type="submit" disabled={isSubmitting}>
         {isSubmitting ? 'Enviando...' : 'Enviar'}

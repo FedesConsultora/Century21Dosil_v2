@@ -51,14 +51,9 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a
-                href="https://c21dosil.com.ar/propiedades"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMenuOpen(false)}
-              >
+              <Link to="/propiedades" onClick={() => setMenuOpen(false)}>
                 Propiedades
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

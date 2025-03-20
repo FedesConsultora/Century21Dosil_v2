@@ -1,0 +1,208 @@
+// src/styles/propiedades.scss
+
+@use 'sass:color';
+@use '../utils/variables' as vars;
+.propiedadesContainer{
+  background-image: url("/public/assets/images/fondoPropiedades2.png");
+  background-size: cover;
+}
+.spacerProps{
+    height: 2rem;
+}
+.propiedades-page {
+  position: relative;
+  
+  font-family: vars.$primary-font;
+  color: vars.$secondary-color;
+  padding: 1rem 2rem;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+  // BORDES (copiados de home.scss)
+  .borders {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    z-index: 1; 
+    
+    .border-top {
+      position: absolute;
+      top: 0;
+      height: 2px; 
+      background-color: #606060 !important;
+
+      &-left {
+        left: 0.8rem;
+        width: 50%; 
+      }
+      &-right {
+        right: 2.4rem !important;
+        width: 50%; 
+      }
+    }
+
+    .border-right {
+      position: absolute;
+      right: 2.4rem !important;
+      width: 2px; 
+      background-color: #606060 !important;
+
+      &-top {
+        top: 0;
+        height: 5%; 
+      }
+      &-bottom {
+        bottom: 0;
+        height: 6%; 
+      }
+    }
+
+    .border-bottom {
+      position: absolute;
+      bottom: 0;
+      height: 2px; 
+      background-color: #606060 !important;
+      
+      &-left {
+        left: 0.8rem;
+        width: 50%; 
+      }
+      &-right {
+        right: 2.4rem !important;
+        width: 50%; 
+      }
+    }
+
+    .border-left {
+      position: absolute;
+      left: 0.7rem;
+      width: 2px; 
+      background-color: #606060 !important;
+
+      &-top {
+        top: 0;
+        height: 8%; 
+      }
+      &-bottom {
+        bottom: 0;
+        height: 6%; 
+      }
+    }
+  }
+
+  // CONTENIDO
+  .contenido-propiedades {
+    position: relative; 
+    z-index: 2;
+    text-align: center;
+
+    h1 {
+      font-size: 2rem;
+      color: #606060;
+      margin-bottom: 2rem;
+      text-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+    }
+
+    .propiedades-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+
+      .propiedad-card {
+        background-color: transparent;
+        position: relative;
+
+        .imagen-container {
+          position: relative;
+          display: flex; // para que el Link abarque toda la tarjeta
+          overflow: hidden;
+          
+          height: 100%;
+          .imagen-principal {
+            width: 100%;
+            min-height: 435px;
+            object-fit: cover;
+            display: block;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+          }
+
+          .overlay-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.5);
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            color: vars.$white-color;
+            padding: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: left;
+
+            h3 {
+              margin-bottom: 0.3rem;
+            }
+          }
+
+          &:hover .overlay-info {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  .botonContainer{
+    margin-top: 2rem;
+    width: 100%;
+    
+    a{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+    }
+    button{
+      width: 50%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      background-color: vars.$primary-color;
+      color: vars.$white-color;
+      border: none;
+      border-radius: 15px;
+      font-size: 1rem;
+      font-weight: 600;
+      box-shadow: rgba($color: vars.$black-color, $alpha: 0.5) 0px 0px 10px 0px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        background-color: color.adjust(vars.$primary-color, $lightness: -10%);
+      }
+    }
+  }
+}
+
+// Ejemplo de media queries si lo deseas
+@media (min-width: 800px) {
+  .propiedades-page {
+    padding: 4rem 2rem;
+    .borders {
+      // Ajusta si quieres, similar a home.scss
+    }
+    .contenido-propiedades {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .propiedades-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+  }
+}
