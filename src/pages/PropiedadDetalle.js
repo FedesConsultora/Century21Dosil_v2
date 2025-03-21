@@ -235,7 +235,18 @@ const PropiedadDetalle = () => {
                 {renderCheck(property["Aire Acondicionado"]) && <li>Aire Acondicionado {renderCheck(property["Aire Acondicionado"])}</li>}
               </ul>
             </div>
-
+            <div className="ficha-tecnica">
+              <a 
+                href={`/assets/pdf/prop${property.ID}.pdf`} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                download
+              >
+                <button className="ficha-tecnica-btn">
+                  Ver Ficha Técnica
+                </button>
+              </a>
+            </div>
             {/* Mapa (SOLO si existe property.Ubicación) */}
             {property.Ubicación && (
               <div className="map-container">

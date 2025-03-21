@@ -244,6 +244,29 @@
           }
         }
       }
+
+      .ficha-tecnica{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        .ficha-tecnica-btn{
+          width: 100%;
+          padding: 0.75rem;
+          padding-left: 4rem;
+          padding-right: 4rem;
+          margin-bottom: 1rem;
+          background-color: #BCAD86;
+          color: #FFFFFF;
+          border: none;
+          border-radius: 15px;
+          font-size: 1rem;
+          font-weight: 600;
+          box-shadow: rgba(34, 34, 34, 0.5) 0px 0px 10px 0px;
+          transition: background-color 0.3s ease;
+          cursor: pointer;
+
+        }
+      }
       .map-container {
         margin-top: 2rem;
         h3 {
