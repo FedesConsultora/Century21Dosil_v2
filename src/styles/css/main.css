@@ -2339,11 +2339,16 @@ header .header-container .nav-menu.active {
 
 .modal-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 80%;
+  max-height: 95%;
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .modal-content {
+    max-width: 55%;
+  }
 }
 .modal-content .modal-arrow {
   position: absolute;

@@ -316,11 +316,14 @@
 
 .modal-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 80%;
+  max-height: 95%;
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
+  @media (min-width: 1024px) {
+    max-width: 55%;     // En pantallas grandes, limita el ancho al 70%
+  }
   .modal-arrow {
     position: absolute;
     top: 50%;
