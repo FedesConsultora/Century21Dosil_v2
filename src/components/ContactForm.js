@@ -60,10 +60,12 @@ const ContactForm = ({ userIntent, defaultMessage = '' }) => {
       for (const key in formData) {
         params.append(key, formData[key]);
       }
+      // Agregamos el parámetro de acción para que el Apps Script sepa qué hacer
+      params.append('action', 'submitContact');
       // Secreto
-      params.append('secretKey', '684ec2a8d2241300bfbb228adfbb2883...');
+      params.append('secretKey', '684ec2a8d2241300bfbb228adfbb2883b52bedc29c2d7613d3d04e598035fe499e9695a045d22f8327d64d5760f3f8c6521c6e71f3dca67755dcf12fa1ff0840');
 
-      await fetch('https://script.google.com/macros/s/AKfycbxoM2IuQo31XwjNI2wSeEjbd6Tm6crGJZtRRZwBp1MJJspU9rrXkvgNsD7clIRN-5SFAg/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbxhiW8_FJ-KHHE2uSP1UHUiOnY1PpRFGkEfu3PAQL64dAcVjuNXyN_Jh9TDvjZ2kjCU_Q/exec', {
         method: 'POST',
         mode: 'no-cors',
         body: params,
