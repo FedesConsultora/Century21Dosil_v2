@@ -1,17 +1,14 @@
 // src/pages/Propiedades.js
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { obtenerPropiedades } from '../services/propiedadesService.js';
 
 const Propiedades = () => {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  console.log('propiedades: ', properties);
   useEffect(() => {
-    // URL de tu Google Apps Script
-    const url = 'https://script.google.com/macros/s/AKfycbxhiW8_FJ-KHHE2uSP1UHUiOnY1PpRFGkEfu3PAQL64dAcVjuNXyN_Jh9TDvjZ2kjCU_Q/exec?action=getProperties';
-    
-    fetch(url)
-      .then((res) => res.json())
+    obtenerPropiedades()
       .then((data) => {
         setProperties(data);
         setLoading(false);
@@ -22,9 +19,10 @@ const Propiedades = () => {
       });
   }, []);
 
+
   if (loading) {
     return (
-        <div className='propiedadesContainer'>
+        <div className='propiedadesContainer cargando'>
             <div className="spacerProps"></div>
             <div className="propiedades-page">
                 {/* BORDES copiados tal cual del Home */}

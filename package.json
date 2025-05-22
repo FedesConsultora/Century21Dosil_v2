@@ -2,7 +2,6 @@
   "name": "century21dosil",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "dependencies": {
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -12,6 +11,7 @@
     "concurrently": "^9.1.0",
     "cross-env": "^7.0.3",
     "dompurify": "^3.2.1",
+    "http-proxy-middleware": "^3.0.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-intersection-observer": "^9.13.1",

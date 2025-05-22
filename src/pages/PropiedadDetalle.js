@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ContactForm from '../components/ContactForm.js';
 import { formatUSD } from '../utils/formatPrice.js';
+import { obtenerPropiedades } from '../services/propiedadesService.js';
 
 const PropiedadDetalle = () => {
   const { id } = useParams();
@@ -16,10 +17,7 @@ const PropiedadDetalle = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const url = 'https://script.google.com/macros/s/AKfycbxhiW8_FJ-KHHE2uSP1UHUiOnY1PpRFGkEfu3PAQL64dAcVjuNXyN_Jh9TDvjZ2kjCU_Q/exec?action=getProperties';
-
-    fetch(url)
-      .then((res) => res.json())
+    obtenerPropiedades()
       .then((data) => {
         const found = data.find((p) => p.ID == id);
         setProperty(found || null);
@@ -89,7 +87,7 @@ const PropiedadDetalle = () => {
 
   if (loading) {
     return (
-      <div className="detalleContainer">
+      <div className="detalleContainer cargando">
         <div className="spacerProps"></div>
         <div className="propiedad-detalle-page">
           {/* Bordes */}
@@ -190,6 +188,7 @@ const PropiedadDetalle = () => {
                 <ContactForm 
                   userIntent="Comprar" 
                   defaultMessage={defaultMessage}
+                  mostrarWhatsapp={true}
                 />
               </div>
             </div>

@@ -1,24 +1,24 @@
-// src/components/ContactForm.js
 import React, { useState, useEffect } from 'react';
 import DOMPurify from 'dompurify';
 import { useNavigate } from 'react-router-dom';
+import { guardarFormulario } from '../services/leadsService.js';
+import { useLeads } from '../context/LeadsContext.js';
 
-const ContactForm = ({ userIntent, defaultMessage = '' }) => {
+const ContactForm = ({ userIntent, defaultMessage = '', mostrarWhatsapp }) => {
   const navigate = useNavigate();
-
+  const { leadId } = useLeads();
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
     email: '',
     telefono: '',
     mensaje: '',
-    intent: userIntent || '', 
+    intencion: userIntent || '',
   });
 
   const [statusMessage, setStatusMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Al montar el componente, si se recibió un defaultMessage, lo seteamos
   useEffect(() => {
     if (defaultMessage) {
       setFormData((prev) => ({
@@ -28,7 +28,6 @@ const ContactForm = ({ userIntent, defaultMessage = '' }) => {
     }
   }, [defaultMessage]);
 
-  // Validaciones
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleChange = (e) => {
@@ -43,10 +42,12 @@ const ContactForm = ({ userIntent, defaultMessage = '' }) => {
       setStatusMessage('Por favor, completa todos los campos obligatorios.');
       return;
     }
+
     if (formData.telefono && !/^\d+$/.test(formData.telefono)) {
       setStatusMessage('Por favor, ingresa un número de teléfono válido.');
       return;
     }
+
     if (!isValidEmail(formData.email)) {
       setStatusMessage('Por favor, ingresa un correo electrónico válido.');
       return;
@@ -56,25 +57,17 @@ const ContactForm = ({ userIntent, defaultMessage = '' }) => {
     setIsSubmitting(true);
 
     try {
-      const params = new URLSearchParams();
-      for (const key in formData) {
-        params.append(key, formData[key]);
-      }
-      // Agregamos el parámetro de acción para que el Apps Script sepa qué hacer
-      params.append('action', 'submitContact');
-      // Secreto
-      params.append('secretKey', '684ec2a8d2241300bfbb228adfbb2883b52bedc29c2d7613d3d04e598035fe499e9695a045d22f8327d64d5760f3f8c6521c6e71f3dca67755dcf12fa1ff0840');
+      const dataConClave = {
+        ...formData,
+        secretKey: process.env.REACT_APP_CONTACT_SECRET_KEY,
+        id_utm: leadId,
+      };
 
-      await fetch('https://script.google.com/macros/s/AKfycbxhiW8_FJ-KHHE2uSP1UHUiOnY1PpRFGkEfu3PAQL64dAcVjuNXyN_Jh9TDvjZ2kjCU_Q/exec', {
-        method: 'POST',
-        mode: 'no-cors',
-        body: params,
-      });
+      console.log('✅ Formulario listo para enviar:', dataConClave);
 
-      // Redirigir al usuario a la página de agradecimiento
+      await guardarFormulario(dataConClave);
       navigate('/thank-you');
 
-      // Resetear formulario
       setFormData({
         nombre: '',
         apellido: '',
@@ -85,12 +78,35 @@ const ContactForm = ({ userIntent, defaultMessage = '' }) => {
       });
     } catch (error) {
       setStatusMessage('Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.');
-      console.error('Error:', error);
+      console.error('❌ Error al guardar formulario:', error);
     } finally {
       setIsSubmitting(false);
     }
   };
+  const handleWhatsappClick = async () => {
+    const mensaje = formData.mensaje || 'Consulta desde propiedad';
+    const telefonoDestino = '+541130482121'; 
+    const urlWhatsapp = `https://wa.me/${telefonoDestino}?text=${encodeURIComponent(mensaje)}`;
 
+    const datos = {
+      nombre: formData.nombre || 'Consulta por WhatsApp',
+      apellido: formData.apellido || '',
+      email: formData.email || 'whatsapp@auto.com',
+      telefono: formData.telefono || '',
+      mensaje,
+      intencion: 'whatsapp',
+      id_utm: leadId,
+      secretKey: process.env.REACT_APP_CONTACT_SECRET_KEY,
+    };
+
+    try {
+      await guardarFormulario(datos);
+      window.open(urlWhatsapp, '_blank');
+    } catch (error) {
+      console.error('❌ Error al enviar por WhatsApp:', error);
+      setStatusMessage('No se pudo completar el envío por WhatsApp.');
+    }
+  };
   return (
     <form onSubmit={handleSubmit} className="contact-form">
       <div className="form-group">
@@ -137,9 +153,22 @@ const ContactForm = ({ userIntent, defaultMessage = '' }) => {
           required
         />
       </div>
-      <button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Enviando...' : 'Enviar'}
-      </button>
+      <div className="form-buttons">
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Enviando...' : 'Enviar por Email'}
+        </button>
+
+        {mostrarWhatsapp && (
+          <button
+            type="button"
+            className="btn-whatsapp"
+            onClick={handleWhatsappClick}
+          >
+            {isSubmitting ? 'Enviando...' : 'Contactar por WhatsApp'}
+          </button>
+        )}
+      </div>
+      
       {statusMessage && <p className="status-message">{statusMessage}</p>}
     </form>
   );

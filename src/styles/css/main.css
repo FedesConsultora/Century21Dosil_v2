@@ -2216,6 +2216,19 @@ header .header-container .nav-menu.active {
 .propiedad-detalle-page .contenido-detalle .detalle-info .imagenYform .form-detalle .contact-form button:hover {
   background-color: rgb(169.8244680851, 150.7553191489, 101.1755319149);
 }
+.propiedad-detalle-page .contenido-detalle .detalle-info .imagenYform .form-detalle .contact-form .btn-whatsapp {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #25d366;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.propiedad-detalle-page .contenido-detalle .detalle-info .imagenYform .form-detalle .contact-form .btn-whatsapp:hover {
+  background-color: #1ebe5d;
+}
 .propiedad-detalle-page .contenido-detalle .detalle-info .datos-principales {
   display: flex;
   flex-wrap: wrap;
@@ -2475,6 +2488,49 @@ body {
     background-image: url("/public/assets/images/fondoDesktop4.webp");
     background-size: cover;
     background-repeat: no-repeat;
+  }
+}
+.propiedadesContainer.cargando {
+  height: 100vh;
+  width: 100%;
+}
+.propiedadesContainer.cargando .propiedades-page {
+  height: 90%;
+}
+.propiedadesContainer.cargando .propiedades-page .contenido-propiedades {
+  animation: pulse 1s infinite;
+  -webkit-animation: pulse 1s infinite;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detalleContainer.cargando {
+  height: 100vh;
+  width: 100%;
+}
+.detalleContainer.cargando .propiedad-detalle-page {
+  height: 90%;
+}
+.detalleContainer.cargando .propiedad-detalle-page .contenido-detalle {
+  animation: pulse 1s infinite;
+  -webkit-animation: pulse 1s infinite;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 

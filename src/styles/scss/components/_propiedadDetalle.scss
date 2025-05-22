@@ -175,6 +175,20 @@
                             background-color: color.adjust(vars.$primary-color, $lightness: -10%);
                         }
                     }
+                    .btn-whatsapp {
+                      display: inline-block;
+                      margin-top: 1rem;
+                      background-color: #25d366;
+                      color: white;
+                      text-align: center;
+                      font-weight: bold;
+                      text-decoration: none;
+                      transition: background-color 0.2s ease;
+
+                      &:hover {
+                        background-color: #1ebe5d;
+                      }
+                    }
                 }
             }
         }
