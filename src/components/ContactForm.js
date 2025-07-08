@@ -9,13 +9,12 @@ const ContactForm = ({ userIntent, defaultMessage = '', mostrarWhatsapp }) => {
   const { leadId } = useLeads();
   const [formData, setFormData] = useState({
     nombre: '',
-    apellido: '',
     email: '',
     telefono: '',
     mensaje: '',
     intencion: userIntent || '',
   });
-
+  const [isSendingWhatsapp, setIsSendingWhatsapp] = useState(false);
   const [statusMessage, setStatusMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -38,7 +37,7 @@ const ContactForm = ({ userIntent, defaultMessage = '', mostrarWhatsapp }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.nombre || !formData.apellido || !formData.email || !formData.mensaje) {
+    if (!formData.nombre || !formData.email || !formData.mensaje) {
       setStatusMessage('Por favor, completa todos los campos obligatorios.');
       return;
     }
@@ -70,7 +69,6 @@ const ContactForm = ({ userIntent, defaultMessage = '', mostrarWhatsapp }) => {
 
       setFormData({
         nombre: '',
-        apellido: '',
         email: '',
         telefono: '',
         mensaje: '',
@@ -84,13 +82,14 @@ const ContactForm = ({ userIntent, defaultMessage = '', mostrarWhatsapp }) => {
     }
   };
   const handleWhatsappClick = async () => {
+    if (isSendingWhatsapp) return;
+
     const mensaje = formData.mensaje || 'Consulta desde propiedad';
     const telefonoDestino = '+541130482121'; 
     const urlWhatsapp = `https://wa.me/${telefonoDestino}?text=${encodeURIComponent(mensaje)}`;
 
     const datos = {
       nombre: formData.nombre || 'Consulta por WhatsApp',
-      apellido: formData.apellido || '',
       email: formData.email || 'whatsapp@auto.com',
       telefono: formData.telefono || '',
       mensaje,
@@ -99,12 +98,18 @@ const ContactForm = ({ userIntent, defaultMessage = '', mostrarWhatsapp }) => {
       secretKey: process.env.REACT_APP_CONTACT_SECRET_KEY,
     };
 
+    setIsSendingWhatsapp(true);
+    setStatusMessage('');
+
     try {
       await guardarFormulario(datos);
+      setStatusMessage('¡Gracias por tu consulta! Te estamos contactando por WhatsApp.');
       window.open(urlWhatsapp, '_blank');
     } catch (error) {
       console.error('❌ Error al enviar por WhatsApp:', error);
       setStatusMessage('No se pudo completar el envío por WhatsApp.');
+    } finally {
+      setIsSendingWhatsapp(false);
     }
   };
   return (
@@ -113,16 +118,8 @@ const ContactForm = ({ userIntent, defaultMessage = '', mostrarWhatsapp }) => {
         <input
           type="text"
           name="nombre"
-          placeholder="Nombre"
+          placeholder="Nombre completo"
           value={formData.nombre}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="apellido"
-          placeholder="Apellido"
-          value={formData.apellido}
           onChange={handleChange}
           required
         />
@@ -163,8 +160,9 @@ const ContactForm = ({ userIntent, defaultMessage = '', mostrarWhatsapp }) => {
             type="button"
             className="btn-whatsapp"
             onClick={handleWhatsappClick}
+            disabled={isSendingWhatsapp}
           >
-            {isSubmitting ? 'Enviando...' : 'Contactar por WhatsApp'}
+            {isSendingWhatsapp ? 'Enviando...' : 'Contactar por WhatsApp'}
           </button>
         )}
       </div>
